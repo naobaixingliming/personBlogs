@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>明玉帛博客</title>
+    <link rel="shortcut icon" href="http://images-lm.oss-cn-hangzhou.aliyuncs.com/logo.ico" type="image/x-icon">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/index.css"/>
+    <link rel="stylesheet" href="/static/css/anmation.css"/>
+
+</head>
+<body>
+<div class="rootNode ">
+    <header class="header">
+        <div class="blogTitle overflow">
+            <p class="font_36 color_fff userBox text_center" >明玉帛</p>
+            <p class="font_18 color_fff" style="padding-top: 50px">每个人的生活都是一个世界， 即使最平凡的人</br>也要为他生活的那个世界努力。</p>
+        </div>
+    </header>
+    <div class="w_1200 margin_center bgColor_fff" style="padding-top: 50px;">
+        <div class="listBox text_center ">
+            <h1 class="">{{content.title}}</h1>
+            <p class="colDefault " style="padding-top: 20px">
+                <!--{{decodeURI(userInfo.username)}}-->
+                作者：<span class="colInfo">明玉帛</span> --
+                时间：<span class="colInfo">{{content.addTime|date('Y-m-d h:i:s',-8*60)}}</span> --
+                阅读：<span class="colInfo">{{content.views}}</span> --
+                评论：<span class="colInfo">{{content.comments.length}}</span>
+            </p>
+            <div style="text-indent: 2em;text-align: left;line-height: 30px;margin: 20px 100px">
+                {{content.content}}
+            </div>
+        </div>
+        <div class="listBox message">
+            <h3 class="textLeft"><span class="em">一共有 <em id="messageCount">0</em> 条评论</span></h3>
+
+            {% if userInfo._id %}
+            <p class="textLeft padding-top-40 padding-bottom-40"></p>
+            <!--{{decodeURI(userInfo.username)}}-->
+            <div class="textLeft clearfloat text_center">
+                <span>
+                    <textarea id="messageContent"></textarea>
+                    <input type="hidden" id="contentId" value="{{content.id}}">
+                    <button id="messageBtn" class="submit">提交</button>
+                </span>
+            </div>
+            {%else%}
+            <p class="bgDanger" style="line-height: 30px;">查看评论，请先<a href="http://localhost:8081/api/user/login">登录</a>！</p>
+            {%endif%}
+
+            <div class="messageList" style="display: block;"></div>
+            <div class="pager" style="margin: 0 100px">
+                <ul class="clear">
+                    <li class="previous " >
+                        <a href="" class="btn btn-default">上一页</a>
+                    </li>
+                    <li></li>
+                    <li class="next " >
+                        <a href="" class="btn btn-default">下一页</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="text_center color_fff font_16" style="height: 50px;line-height: 50px; background-color:#1F89bf ">MingYubo Copy Right @2017</footer>
+</div>
+<script src="/static/js/libs/jquery-1.9.1.min.js"></script>
+<script src="/static/js/content/content.js"></script>
+<script>
+    content.views.init();
+</script>

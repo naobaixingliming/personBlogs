@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>注册登录</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="http://images-lm.oss-cn-hangzhou.aliyuncs.com/logo.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div class="cotn_principal text_center">
+    <div class="cont_centrar">
+        <div class="cont_login">
+            <div class="cont_info_log_sign_up">
+                <div class="col_md_login">
+                    <div class="cont_ba_opcitiy">
+                        <h2>LOGIN</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
+                        <button class="btn_login" onclick="cambiar_login()">登录</button>
+                    </div>
+                </div>
+                <div class="col_md_sign_up">
+                    <div class="cont_ba_opcitiy">
+                        <h2>SIGN UP</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
+                        <button class="btn_sign_up" onclick="cambiar_sign_up()">注册</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cont_back_info">
+                <div class="cont_img_back_grey"> <img src="/static/img/po.jpg" alt="" /> </div>
+            </div>
+            <div class="cont_forms" >
+                <div class="cont_img_back_"> <img src="/static/img/po.jpg" alt="" /> </div>
+                <div class="cont_form_login"> <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
+                    <h2>LOGIN</h2>
+                    <input type="text" placeholder="请输入用户名" name="username"/>
+                    <input type="password" placeholder="请输入密码" name="password"/>
+                    <button class="btn_login font_20" id="loginBtn">登录</button>
+                    <p class="colWarning"></p>
+                </div>
+                <div class="cont_form_sign_up"> <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+                    <h2>SIGN UP</h2>
+                    <input type="text" placeholder="请输入用户名" name="username"/>
+                    <input type="password" placeholder="请输入密码" name="password" onselectstart="return false;" onpaste="return false;"/>
+                    <input type="password" placeholder="请确认密码" name="repassword" onselectstart="return false;" onpaste="return false;"/>
+                    <button class="btn_sign_up font_20" id="registerBtn">注册</button>
+                    <p class="colWarning"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/libs/jquery-1.9.1.min.js"></script>
+<script src="/static/js/login/login.js"></script>
+</body>
+</html>

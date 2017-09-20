@@ -1,0 +1,23 @@
+/*--效果1 start--*/
+[btn-triggle="expandUp"] {
+    position: relative;
+}
+[btn-triggle="expandUp"]:after {
+    content: '';
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    background: rgba(51, 51, 51, 0.3);
+}
+[btn-triggle="expandUp"]:hover:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/*--效果1 end--/

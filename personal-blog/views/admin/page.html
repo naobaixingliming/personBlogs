@@ -1,0 +1,25 @@
+<nav aria-label="...">
+    {%if !count||count==0%}
+    <ul class="pager">
+        <li class="letter_space text_center">
+           当前没有数据
+        </li>
+    </ul>
+    {%else%}
+    <ul class="pager">
+        {% if page==1 %}
+        <li class="previous"><span style="background-color:#dedede ">没有上一页了</span></li>
+        {% else %}
+        <li class="previous"><a href="{{location.pathname}}?page={{page-1}}"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+        {% endif %}
+        <li class="letter_space float_left" style="margin: 10px 30%">
+            用户数据总共<i class="color_f44975 bold font_20">{{totalPages}}</i>页,有<i class="color_f44975 bold font_20">{{count}}</i>条数据,当前处于第<i class="color_f44975 bold font_20">{{page}}</i>页
+        </li>
+        {% if page>=totalPages %}
+        <li class="next"><span style="background-color:#dedede ">没有下一页了</span></li>
+        {% else %}
+        <li class="next"><a href="{{location.pathname}}?page={{page+1}}">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+        {% endif %}
+    </ul>
+    {%endif%}
+</nav>

@@ -1,0 +1,62 @@
+{% extends 'layout.html'%}
+{%block content%}
+<p class="rec-box"></p>
+<img class="triangle" src="/static/img/triangleImg.png" />
+<div class="content w_1200 margin_center">
+    <!--one start-->
+    {% for content in contents%}
+    <div class="common-box">
+        <div class="title text_center font_50 color_ce4f62">
+            {{content.title}}
+            <!--<p class=" font_50 color_4f4f4f">快速上手<i class="color_ce4f62">nodeJs</i></p>-->
+            <!--<p class="relative h-40"><span class="line-hor"><i class="color_666 text-bg relative">Quick start nodeJs</i></span></p>-->
+        </div>
+        <div class="clearfloat">
+            <div class="left-box float_left relative">
+                <p class="color_333 font_18">
+                    <span class="mar-right-10">作者：<i class="colInfo">{{decodeURI(userInfo.username)}}</i> </span>
+                    <span class="mar-right-10">时间：<i class="colInfo">{{content.addTime|date('Y-m-d',-8*60)}}</i></span>
+                    <span class="mar-right-10">阅读：<i class="colInfo">{{content.views}}</i></span>
+                    <span class="mar-right-10">评论：<i class="colInfo">{{content.comments.length}}</i></span>
+                </p>
+                <div class=" mar-top-20 color_666 font_16 scriptText">
+                    <div class="text_indent padding-top-10 mar-side-20 letter_space_2">
+                       {{content.description}}
+                    </div>
+                </div>
+                <div class="readText">
+                    <a href="/views?viewId={{content.id}}"  btn-triggle="expandUp" >阅读全文</a>
+                </div>
+            </div>
+            <div class="right-box float_left">
+                <img src="{{content.imgUrl}}">
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    <!--one end-->
+    <div class="pager">
+        <ul class="clear">
+            <li class="previous">
+                {% if page<=1 %}
+                <span>没有上一页</span>
+                {% else %}
+                <a href="{{location.pathname}}?page={{page-1}}">上一页</a>
+                {% endif%}
+            </li>
+            <li>
+                <strong>{{page}}/{{pages}}</strong>
+            </li>
+            <li class="next">
+                {% if page>=pages %}
+                <span>没有下一页</span>
+                {% else %}
+                <a href="{{location.pathname}}?page={{page+1}}">下一页</a>
+                {% endif%}
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}

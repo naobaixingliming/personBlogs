@@ -1,0 +1,35 @@
+{% extends '../layout.html'%}
+{%block content %}
+<h3>用户列表</h3>
+<table class="table table-hover table-striped">
+    <tr >
+        <th >ID</th>
+        <th >用户名</th>
+        <th>密码</th>
+        <th>是否是管理员</th>
+    </tr>
+    {%for user in users%}
+        {%if user.isAdmin==true%}
+        <tr style="background-color: #e0e0f3;color:#fff">
+            <td>{{user._id.toString()}}</td>
+            <td>{{decodeURI(user.username)}}</td>
+            <td>{{user.password}}</td>
+            <td >
+                <p >是</p>
+            </td>
+        </tr>
+        {%else%}
+        <tr>
+            <td>{{user._id.toString()}}</td>
+            <td>{{decodeURI(user.username)}}</td>
+            <td>{{user.password}}</td>
+            <td ></td>
+        </tr>
+        {%endif%}
+    {%endfor%}
+</table>
+<div class="page">
+{% include '../page.html' ignore missing %}
+</div>
+
+{%endblock%}
