@@ -74,7 +74,7 @@ app.use('/',require('./routers/main'));
 //     }
 // });
 
-mongoose.connect('mongodb://localhost:27018/blog', {
+mongoose.connect('mongodb://mingyubo:1033256773@ds151024.mlab.com:51024/personblog', {
     useMongoClient: true,
     reconnectTries:10,
     /* other options */

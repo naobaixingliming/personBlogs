@@ -12,7 +12,7 @@
         {% else %}
         <li class="previous"><a href="{{location.pathname}}?page={{page-1}}"><span aria-hidden="true">&larr;</span> 上一页</a></li>
         {% endif %}
-        <li class="letter_space float_left" style="margin: 10px 30%">
+        <li class="letter_space float_left text_center" style="width:70%">
             用户数据总共<i class="color_f44975 bold font_20">{{totalPages}}</i>页,有<i class="color_f44975 bold font_20">{{count}}</i>条数据,当前处于第<i class="color_f44975 bold font_20">{{page}}</i>页
         </li>
         {% if page>=totalPages %}
