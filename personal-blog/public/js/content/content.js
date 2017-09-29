@@ -60,7 +60,7 @@ var content = {
         },
         //提交评论
         comments: function () {
-            $('#messageCount').html($('.messageBox').length);
+           // $('#messageCount').html($('.messageBox').length);
             $('#messageBtn').on('click', function () {
                 if ($('#messageContent').val() == '') {
                     return;
@@ -75,7 +75,7 @@ var content = {
                             content: $('#messageContent').val()
                         },
                         success: function (res) {
-                            console.log(res);
+                            //console.log(res);
                             content.views.comments = res.data.comments.reverse();
                             content.views.render();
                         }
@@ -119,6 +119,7 @@ var content = {
                 $('.messageList').html('<div class="messageBox"><p>还没有留言</p></div>');
             }else {
                 $('.messageList').html(htmlStr);
+                $('#messageCount').html($('.messageBox').length);
             }
         },
         //日期格式化
